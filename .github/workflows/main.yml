@@ -10,7 +10,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v2
 
@@ -21,13 +22,7 @@ jobs:
         run: |
           echo Add other actions to build,
           echo Test, and deploy your project.
-          
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
